@@ -80,7 +80,7 @@ therefore I will continue with the PAT.
 
 ```{r, eval = FALSE}
 #
-# usethis::create_github_token()  # if done already, use OrganizationGGRLAB password
+usethis::create_github_token()  # if done already, use "github token, ggrlab, PAT" password
 gitcreds::gitcreds_set() # Then enter the freshly generated token
 usethis::use_github(
     organisation = "ggrlab",
