@@ -6,3 +6,4 @@
 .quarto
 docs
 data-raw/*/data/
+data-raw/*/res/
