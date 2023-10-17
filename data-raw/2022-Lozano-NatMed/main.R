@@ -17,10 +17,10 @@ download.file(
 )
 
 #### 2. Read data
-pheno <- readxl::read_excel(
-    file.path(proj_dir, "data", "41591_2021_1623_MOESM3_ESM.xlsx"),
-    sheet = "Table S1", na = "NA", skip = 3
-)
+# pheno <- readxl::read_excel(
+#     file.path(proj_dir, "data", "41591_2021_1623_MOESM3_ESM.xlsx"),
+#     sheet = "Table S1", na = "NA", skip = 3
+# )
 pheno_discovery <- readxl::read_excel(
     file.path(proj_dir, "data", "41591_2021_1623_MOESM3_ESM.xlsx"),
     sheet = "Table S3", na = "NA", skip = 3
@@ -41,17 +41,11 @@ table(data_joint[["Severe irAE status (1=Yes, 0=No)d"]])
 
 
 #### 3. Save data in qrds format
-qs::qsave(pheno, file.path(proj_dir, "res", "pheno.qs"))
 qs::qsave(pheno_discovery, file.path(proj_dir, "res", "pheno_discovery.qs"))
 qs::qsave(cytof, file.path(proj_dir, "res", "cytof.qs"))
+qs::qsave(data_joint, file.path(proj_dir, "res", "data_joint.qs"))
 
 
 #### 4. usethis::use_data()
-lozano2022_pheno <- pheno
-usethis::use_data(lozano2022_pheno, overwrite = TRUE)
-
-lozano2022_pheno_discovery <- pheno_discovery
-usethis::use_data(lozano2022_pheno_discovery, overwrite = TRUE)
-
-lozano2022_cytof <- cytof
-usethis::use_data(lozano2022_cytof, overwrite = TRUE)
+lozano2022_pheno_cytof <- data_joint
+usethis::use_data(lozano2022_pheno_cytof, overwrite = TRUE)
