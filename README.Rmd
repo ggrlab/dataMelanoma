@@ -6,10 +6,10 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
 )
 ```
 
@@ -54,3 +54,37 @@ plot(pressure)
 ```
 
 In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+
+
+
+# How was this package created?
+
+```{r, eval = FALSE}
+# for VSCode
+install.packages("languageserver")
+install.packages("devtools")
+usethis::create_tidy_package("/home/gugl/clonedgit/ggrlab/dataMelanoma")
+usethis::proj_activate("/home/gugl/clonedgit/ggrlab/dataMelanoma")
+usethis::use_tidy_style(strict = TRUE)
+usethis::use_git()
+```
+
+
+``usethis`` tells you to envoke further github-related commands. 
+There is two ways to continue: 
+1. Create a personal access token (PAT) and use it to authenticate with github
+2. Manually push the package to github 
+
+Pushing manually works fine, but some advanced ``usethis`` commands won't work properly, 
+therefore I will continue with the PAT.
+
+```{r, eval = FALSE}
+#
+# usethis::create_github_token()  # if done already, use OrganizationGGRLAB password
+gitcreds::gitcreds_set() # Then enter the freshly generated token
+usethis::use_github(
+    organisation = "ggrlab",
+    private = FALSE,
+    visibility = "public"
+)
+```
