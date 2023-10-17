@@ -131,6 +131,8 @@ usethis::use_package("dplyr")
 usethis::use_package("lifecycle")
 usethis::use_package("tibble")
 usethis::use_package("qs")
+usethis::use_package("usethis")
+usethis::use_package("readxl")
 precommit::snippet_generate("additional-deps-roxygenize")
 ```
 
