@@ -12,8 +12,8 @@ create_data_project <- function(name) {
     file.create(file.path(proj_dir, "src", "f01_example.R"))
 
     # Write to main.R
-    appending <- FALSE
-    for (line_x in list(
+
+    cat(
         paste0("# dataMelanoma::create_data_project(\"", name, "\")"),
         paste0("proj_dir <- \"", proj_dir, "/\""),
         "",
@@ -22,24 +22,29 @@ create_data_project <- function(name) {
         "download.file(",
         "    url = \"INSERT_URL_HERE\",",
         "    destfile = file.path(proj_dir, \"data\")",
-        ")"
-    )) {
-        cat(
-            line_x, "\n",
-            file = file.path(proj_dir, "main.R"),
-            append = appending,
-            sep = ""
-        )
-        appending <- TRUE
-    }
+        ")", "", "",
+        "#### 2. Read data",
+        "# pheno <- readxl::read_excel(",
+        '#     file.path(proj_dir, "data", "41591_2021_1623_MOESM3_ESM.xlsx"),',
+        '#     sheet = "Table S1", na = "NA", skip = 3',
+        "# )",
+        "", "",
+        "#### 3. Save data in qrds format",
+        'qs::qsave(pheno, file.path(proj_dir, "res", "pheno.qs"))',
+        "", "",
+        "#### 4. usethis::use_data()",
+        "lozano2022_pheno <- pheno",
+        "usethis::use_data(lozano2022_pheno, overwrite = TRUE)",
+        file = file.path(proj_dir, "main.R"),
+        append = FALSE,
+        sep = "\n"
+    )
 
     # Write to f01_example.R
-    fileconn <- file(file.path(proj_dir, "src", "f01_example.R"))
-    writeLines(
-        text = paste0(
-            "# Here comes the code, start with downloading the data"
-        ),
-        con = fileconn
+    cat(
+        "# Here comes the code, start with downloading the data",
+        file = file.path(proj_dir, "src", "f01_example.R"),
+        append = FALSE,
+        sep = "\n"
     )
-    close(fileconn)
 }
