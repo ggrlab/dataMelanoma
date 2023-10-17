@@ -173,7 +173,11 @@ e.g. zenodo, then the code to download it from there should be included.
 In the end, the complete dataset must be reproducible by calling ``main.R`` within each 
 ``data-raw`` folder.
 
+# Example: Lozano 2022
 
+```{r}
+create_data_project("2022-Lozano-NatMed")
+```
 
 # How to add information
 
