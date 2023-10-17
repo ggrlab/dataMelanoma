@@ -1,10 +1,13 @@
 Package: dataMelanoma
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: A data source for melanoma data
+Version: 0.0.0.9001
 Authors@R: 
     person("Gunther", "Glehr", , "gunthergl@gmx.net", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1495-9162"))
-Description: What the package does (one paragraph).
+Description: This package provides various melanoma datasets. It gives access to the code 
+    used to harvest/preprocess the data, as well as the data itself. The processed data 
+    is stored with zenodo and can be accessed via the zenodo API. It gives a convenient 
+    way to upload and download to/from zenodo.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)
