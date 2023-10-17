@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/dataMelanoma)](https://CRAN.R-project.org/package=dataMelanoma)
+[![R-CMD-check](https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/ggrlab/dataMelanoma/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ggrlab/dataMelanoma?branch=master)
 <!-- badges: end -->
 
 The goal of dataMelanoma is to ...
@@ -103,4 +105,5 @@ git branch --delete main_devel
 
 ```{r, eval = FALSE}
 usethis::use_tidy_github()
+usethis::use_tidy_github_actions()
 ```
