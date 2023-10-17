@@ -112,3 +112,20 @@ usethis::use_github_action("check-standard")
 usethis::use_tidy_github_labels()
 usethis::use_pkgdown_github_pages()
 ```
+
+Additional information: 
+```{r, eval = FALSE}
+usethis::use_author(
+    given = "Gunther",
+    family = "Glehr",
+    email = "gunthergl@gmx.net",
+    role = c("aut", "cre"),
+    comment = c("ORCID" = "0000-0002-1495-9162")
+)
+usethis::use_lifecycle()
+usethis::use_news_md()
+lintr::use_lintr(type = "tidyverse")
+# Change file .lintr manually to:
+# linters: linters_with_defaults(line_length_linter = line_length_linter(120),indentation_linter = indentation_linter(4)) # see vignette("lintr")
+# encoding: "UTF-8"
+```
