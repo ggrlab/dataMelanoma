@@ -82,7 +82,7 @@ therefore I will continue with the PAT.
 
 ```{r, eval = FALSE}
 #
-usethis::create_github_token()  # if done already, use "github token, ggrlab, PAT" password
+usethis::create_github_token() # if done already, use "github token, ggrlab, PAT" password
 gitcreds::gitcreds_set() # Then enter the freshly generated token
 usethis::use_github(
     organisation = "ggrlab",
@@ -129,3 +129,15 @@ lintr::use_lintr(type = "tidyverse")
 # linters: linters_with_defaults(line_length_linter = line_length_linter(120),indentation_linter = indentation_linter(4)) # see vignette("lintr")
 # encoding: "UTF-8"
 ```
+precommit is a wonderful tool to check your code before committing it. 
+
+```{r, eval = FALSE}
+# https://lorenzwalthert.github.io/precommit/articles/precommit.html
+# install.packages("precommit")
+# bash::$ conda deactivate
+# bash::$ pip3 install pre-commit
+precommit::install_precommit()
+precommit::use_precommit()
+## Use pre-commit-config.yaml from restrictedROC
+```
+Before committing: ``pre-commit install --hook-type pre-push``, then commit. 
