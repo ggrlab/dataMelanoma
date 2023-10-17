@@ -10,4 +10,13 @@ create_data_project <- function(name) {
     }
     file.create(file.path(proj_dir, "main.R"))
     file.create(file.path(proj_dir, "src", "f01_example.R"))
+
+    fileconn <- file(file.path(proj_dir, "main.R"))
+    writeLines(
+        text = paste0(
+            "dataMelanoma::create_data_project(\"", name, "\")"
+        ),
+        con = fileconn
+    )
+    close(fileconn)
 }
