@@ -158,11 +158,11 @@ data-raw/2022-Lozano-NatMed/
 Scripts must access data by their full path relative to the main `datamelanoma`-package directory:
 
 ```R
-A_DATAPROJECT.DIR <- "data-raw/2022-Lozano-NatMed/"  # The current data-raw, dataset folder
-my_data <- read.csv(file.path(A_DATAPROJECT.DIR, 'data/rawData/example.csv'))
+proj_dir <- "data-raw/2022-Lozano-NatMed/"  # The current data-raw, dataset folder
+my_data <- read.csv(file.path(proj_dir, 'data/rawData/example.csv'))
 
 # if there are subfolders in rawdata
-my_data <- read.csv(file.path(A_DATAPROJECT.DIR, 'data/rawData/folderXY/example2.csv'))
+my_data <- read.csv(file.path(proj_dir, 'data/rawData/folderXY/example2.csv'))
 ```
 
 Inside git, **no raw data** should be included. Usually, the data is online somewhere already, 
