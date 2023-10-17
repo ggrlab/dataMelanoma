@@ -139,16 +139,18 @@ precommit is a wonderful tool to check your code before committing it.
 precommit::install_precommit()
 precommit::use_precommit()
 ## Use pre-commit-config.yaml from restrictedROC
+```
+Before committing: ``pre-commit install --hook-type pre-push``, then commit. 
+
+Used packages:
+```{r, eval = FALSE}
 usethis::use_package("devtools")
 usethis::use_package("dplyr")
 usethis::use_package("lifecycle")
 usethis::use_package("tibble")
 usethis::use_package("qs")
+precommit::snippet_generate("additional-deps-roxygenize")
 ```
-Before committing: ``pre-commit install --hook-type pre-push``, then commit. 
-
-
-
 # How to add information
 
 ```{r, eval = FALSE}
