@@ -15,4 +15,8 @@ RoxygenNote: 7.2.3
 URL: https://github.com/ggrlab/dataMelanoma, https://ggrlab.github.io/dataMelanoma/
 BugReports: https://github.com/ggrlab/dataMelanoma/issues
 Imports: 
-    lifecycle
+    devtools,
+    dplyr,
+    lifecycle,
+    qs,
+    tibble
