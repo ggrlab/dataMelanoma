@@ -1,3 +1,3 @@
-# dataMelanoma (development version)
+# dataMelanoma v0.0.0.9001
 
-* Initial CRAN submission.
+- `Added`: `create_data_project()`
