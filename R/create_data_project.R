@@ -11,10 +11,33 @@ create_data_project <- function(name) {
     file.create(file.path(proj_dir, "main.R"))
     file.create(file.path(proj_dir, "src", "f01_example.R"))
 
-    fileconn <- file(file.path(proj_dir, "main.R"))
+    # Write to main.R
+    appending <- FALSE
+    for (line_x in list(
+        paste0("# dataMelanoma::create_data_project(\"", name, "\")"),
+        paste0("proj_dir <- \"", proj_dir, "/\""),
+        "",
+        "",
+        "#### 1. Download data",
+        "download.file(",
+        "    url = \"INSERT_URL_HERE\",",
+        "    destfile = file.path(proj_dir, \"data\")",
+        ")"
+    )) {
+        cat(
+            line_x, "\n",
+            file = file.path(proj_dir, "main.R"),
+            append = appending,
+            sep = ""
+        )
+        appending <- TRUE
+    }
+
+    # Write to f01_example.R
+    fileconn <- file(file.path(proj_dir, "src", "f01_example.R"))
     writeLines(
         text = paste0(
-            "# dataMelanoma::create_data_project(\"", name, "\")"
+            "# Here comes the code, start with downloading the data"
         ),
         con = fileconn
     )

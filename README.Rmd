@@ -131,7 +131,17 @@ usethis::use_package("dplyr")
 usethis::use_package("lifecycle")
 usethis::use_package("tibble")
 usethis::use_package("qs")
+usethis::use_package("usethis")
+usethis::use_package("readxl")
 precommit::snippet_generate("additional-deps-roxygenize")
+```
+
+
+Set up git-lfs
+```{bash, eval = FALSE}
+git lfs install
+git lfs track "*.rda"
+git add .gitattributes
 ```
 
 ## How to add or reproduce datasets
@@ -158,11 +168,11 @@ data-raw/2022-Lozano-NatMed/
 Scripts must access data by their full path relative to the main `datamelanoma`-package directory:
 
 ```R
-A_DATAPROJECT.DIR <- "data-raw/2022-Lozano-NatMed/"  # The current data-raw, dataset folder
-my_data <- read.csv(file.path(A_DATAPROJECT.DIR, 'data/rawData/example.csv'))
+proj_dir <- "data-raw/2022-Lozano-NatMed/"  # The current data-raw, dataset folder
+my_data <- read.csv(file.path(proj_dir, 'data/rawData/example.csv'))
 
 # if there are subfolders in rawdata
-my_data <- read.csv(file.path(A_DATAPROJECT.DIR, 'data/rawData/folderXY/example2.csv'))
+my_data <- read.csv(file.path(proj_dir, 'data/rawData/folderXY/example2.csv'))
 ```
 
 Inside git, **no raw data** should be included. Usually, the data is online somewhere already, 
@@ -173,7 +183,11 @@ e.g. zenodo, then the code to download it from there should be included.
 In the end, the complete dataset must be reproducible by calling ``main.R`` within each 
 ``data-raw`` folder.
 
+# Example: Lozano 2022
 
+```{r}
+create_data_project("2022-Lozano-NatMed")
+```
 
 # How to add information
 
