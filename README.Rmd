@@ -110,4 +110,5 @@ usethis::use_tidy_github_actions()
 # to not run so many checks
 usethis::use_github_action("check-standard")
 usethis::use_tidy_github_labels()
+usethis::use_pkgdown_github_pages()
 ```
