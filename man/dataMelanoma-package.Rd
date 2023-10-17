@@ -6,7 +6,7 @@
 \alias{dataMelanoma-package}
 \title{dataMelanoma: A data source for melanoma data}
 \description{
-This package provides various melanoma datasets. It gives access to the code used to harvest/preprocess the data, as well as the data itself. The processed data is stored with zenodo and can be accessed via the zenodo API. It gives a convenient way to upload and download to/from zenodo.
+This package provides various melanoma datasets. It gives access to the code used to harvest/preprocess the data, as well as the data itself. The processed data is stored with git-lfs as long as possible. If github's quota is reached, I might switch to zenodo.
 }
 \seealso{
 Useful links:
