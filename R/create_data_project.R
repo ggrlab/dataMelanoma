@@ -14,7 +14,7 @@ create_data_project <- function(name) {
     fileconn <- file(file.path(proj_dir, "main.R"))
     writeLines(
         text = paste0(
-            "dataMelanoma::create_data_project(\"", name, "\")"
+            "# dataMelanoma::create_data_project(\"", name, "\")"
         ),
         con = fileconn
     )
