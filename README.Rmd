@@ -39,6 +39,7 @@ You can install the development version of dataMelanoma like so:
 
  - The package is motivated by https://r-pkgs.org/data.html
  - Some ideas were taken from https://gitlab.spang-lab.de/glg58630/dataloading.lfs
+ - If I sometime decide to use zenodo: https://github.com/ropenscilabs/deposits or https://github.com/eblondel/zen4R  (Probably rather ``deposits``)
 
 
 # How was this package created?
