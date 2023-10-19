@@ -137,6 +137,14 @@ usethis::use_package("readxl")
 precommit::snippet_generate("additional-deps-roxygenize")
 ```
 
+Packages used within the data-raw scripts:
+```{r, eval = FALSE}
+usethis::use_package("pacman", type = "Suggests")
+usethis::use_package("stringr", type = "Suggests")
+usethis::use_package("gridExtra", type = "Suggests")
+usethis::use_package("sva", type = "Suggests")
+usethis::use_package("caret", type = "Suggests")
+```
 
 Set up git-lfs
 ```{bash, eval = FALSE}
