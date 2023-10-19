@@ -1,6 +1,6 @@
 Package: dataMelanoma
 Title: A data source for melanoma data
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person("Gunther", "Glehr", , "gunthergl@gmx.net", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1495-9162"))
@@ -11,6 +11,7 @@ Description: This package provides various melanoma datasets. It gives access to
 License: MIT + file LICENSE
 Suggests: 
     caret,
+    data.table,
     gridExtra,
     pacman,
     stringr,
