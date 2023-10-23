@@ -32,10 +32,12 @@ jobs:
       - name: Set up mock-datasets instead of git-lfs
         run: Rscript -e 'for (file_x in list.files("data")) {placeholder <- 0; save(placeholder, file = file.path("data", file_x))}'
       - uses: r-lib/actions/setup-r-dependencies@v2
+        env:
+          # https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#readme
+          _R_CHECK_FORCE_SUGGESTS_: false
         with:
           extra-packages: any::pkgdown, local::.
           needs: website
-
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
