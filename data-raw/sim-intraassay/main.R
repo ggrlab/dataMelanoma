@@ -3,12 +3,11 @@ proj_dir <- "data-raw/sim-intraassay/"
 
 
 #### 1. Download data
-# TODO: Upload + download the data
-# TODO: Add the code to simulate the data
-# download.file(
-#     url = "INSERT_URL_HERE",
-#     destfile = file.path(proj_dir, "data")
-# )
+dir.create(file.path(proj_dir, "data"), showWarnings = FALSE)
+download.file(
+    url = "https://figshare.com/ndownloader/files/42862243",
+    destfile = file.path(proj_dir, "data", "sim00_pure_estimate_node_counts_df.csv")
+)
 
 
 #### 2. Read data
@@ -18,6 +17,7 @@ set.seed(100)
 sim00_pure_estimate[["fake_labels"]] <- sample(c("group_A", "group_B"), size = nrow(sim00_pure_estimate), replace = TRUE)
 sim00_pure_estimate <- dplyr::relocate(sim00_pure_estimate, fake_labels, .after = "V1")
 #### 3. Save data in qrds format
+dir.create(file.path(proj_dir, "res"), showWarnings = FALSE)
 qs::qsave(sim00_pure_estimate, file.path(proj_dir, "res", "sim00_pure_estimate.qs"))
 
 
