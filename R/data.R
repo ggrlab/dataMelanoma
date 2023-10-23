@@ -62,23 +62,34 @@
 #' @title Zhang 2022 training bulk RNAseq data
 #' @description Training data from Zhang2022, post ComBat() preprocessing. See also \code{\link{zhang2022}}.
 #' @inherit zhang2022
-#' @format 
+#' @format
+#' A tibble with 618 rows and 15904 columns. Of those columns, the first 8 are phenodata
+#' per sample (rows): batch, ID, OS, status, PFS, status2, response and BOR. The remaining
+#' columns are gene expression data.
 "zhang2022_training"
 
 #' @title Zhang 2022 validation bulk RNAseq data
 #' @description Validation data from Zhang2022, post ComBat() preprocessing. See also \code{\link{zhang2022}}.
 #' @inherit zhang2022
 #' @format
+#' A tibble with 154 rows and 15904 columns. Of those columns, the first 8 are phenodata
+#' per sample (rows): batch, ID, OS, status, PFS, status2, response and BOR. The remaining
+#' columns are gene expression data.
 "zhang2022_validation"
 
 #' @title Zhang 2022 test bulk RNAseq data
 #' @description Test data from Zhang2022, post ComBat() preprocessing. See also \code{\link{zhang2022}}.
 #' @inherit zhang2022
 #' @format
+#' A tibble with 149 rows and 15904 columns. Of those columns, the first 8 are phenodata
+#' per sample (rows): batch, ID, OS, status, PFS, status2, response and BOR. The remaining
+#' columns are gene expression data.
 "zhang2022_test"
 
 #' @title Zhang 2022 Stem.Sig gene signature
 #' @description Stem.Sig gene signature from Zhang2022, see also \code{\link{zhang2022}}.
 #' @inherit zhang2022
 #' @format
+#' A character vector of 454 gene names, identified via a single cell analysis of 34
+#' scRNA-seq datasets.
 "zhang2022_Stem.Sig"
