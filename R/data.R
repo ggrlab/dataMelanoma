@@ -57,11 +57,13 @@
 #'
 #' @source Zhang, Z., Wang, ZX., Chen, YX. et al. Integrated analysis of single-cell and bulk RNA sequencing data reveals a pan-cancer stemness signature predicting immunotherapy response. Genome Med 14, 45 (2022). https://doi.org/10.1186/s13073-022-01050-w
 #'
-"zhang2022"
+zhang2022 <- function() {
+    # placeholder
+    # documentation function
+}
 
 #' @title Zhang 2022 training bulk RNAseq data
 #' @description Training data from Zhang2022, post ComBat() preprocessing. See also \code{\link{zhang2022}}.
-#' @inherit zhang2022
 #' @format
 #' A tibble with 618 rows and 15904 columns. Of those columns, the first 8 are phenodata
 #' per sample (rows): batch, ID, OS, status, PFS, status2, response and BOR. The remaining
@@ -70,7 +72,6 @@
 
 #' @title Zhang 2022 validation bulk RNAseq data
 #' @description Validation data from Zhang2022, post ComBat() preprocessing. See also \code{\link{zhang2022}}.
-#' @inherit zhang2022
 #' @format
 #' A tibble with 154 rows and 15904 columns. Of those columns, the first 8 are phenodata
 #' per sample (rows): batch, ID, OS, status, PFS, status2, response and BOR. The remaining
@@ -79,7 +80,6 @@
 
 #' @title Zhang 2022 test bulk RNAseq data
 #' @description Test data from Zhang2022, post ComBat() preprocessing. See also \code{\link{zhang2022}}.
-#' @inherit zhang2022
 #' @format
 #' A tibble with 149 rows and 15904 columns. Of those columns, the first 8 are phenodata
 #' per sample (rows): batch, ID, OS, status, PFS, status2, response and BOR. The remaining
@@ -88,7 +88,6 @@
 
 #' @title Zhang 2022 Stem.Sig gene signature
 #' @description Stem.Sig gene signature from Zhang2022, see also \code{\link{zhang2022}}.
-#' @inherit zhang2022
 #' @format
 #' A character vector of 454 gene names, identified via a single cell analysis of 34
 #' scRNA-seq datasets.
