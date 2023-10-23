@@ -95,6 +95,10 @@ zhang2022 <- function() {
 
 #' @title Spencer 2021 microbiome data, phenodata
 #' @description Data for the samples from Spencer 2021
+#' @source
+#' https://github.com/mda-primetr/Spencer_et_al_2021
+#'
+#' Christine N. Spencer et al. ,Dietary fiber and probiotics influence the gut microbiome and melanoma immunotherapy response.Science374,1632-1640(2021).DOI:10.1126/science.aaz7015
 #' @format
 #' A tibble with 167 rows (samples) and 42 columns (features).
 "spencer2021_pheno"
@@ -103,5 +107,10 @@ zhang2022 <- function() {
 #' @description
 #' Relative abundances of Last Known Taxon features (lowest taxon known for a feature,
 #' up to species), in Parts Per Million (PPM). Data for the samples from Spencer 2021
+#' @source
+#' https://github.com/mda-primetr/Spencer_et_al_2021
+#'
+#' Christine N. Spencer et al. ,Dietary fiber and probiotics influence the gut microbiome and melanoma immunotherapy response.Science374,1632-1640(2021).DOI:10.1126/science.aaz7015
 #' @format
 #' A tibble with 225 rows (features) and 1 + 167 columns (1 feature, 167 samples).
+"spencer2021_lkt_ppm"
