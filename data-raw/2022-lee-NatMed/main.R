@@ -101,13 +101,18 @@ print(apply(table(
     useNA = "always"
 ), 2, sum))
 
+## The data names are slightly different. We need to change them to match the names in the metadata
+data_lee$subject_id <- sub("SAM_P", "SAM_", data_lee$subject_id)
+data_lee$subject_id[!data_lee$subject_id %in% rownames(data_lee)]
+
+
 data_lee_pheno_curated <- data_lee |>
     SummarizedExperiment::colData() |>
     tibble::as_tibble() |>
     dplyr::select(study_name, subject_id, body_site, age, age_category, gender, PMID, number_reads, number_bases, minimum_read_length, median_read_length, NCBI_accession, lee_subcohort, PFS12)
 
-tmp <- data.frame(data_lee_pheno_curated[, c("study_name", "subject_id", "RECIST", "ORR")])
-table(tmp[, c("RECIST", "ORR")])
+# tmp <- data.frame(data_lee_pheno_curated[, c("study_name", "subject_id", "RECIST", "ORR")])
+# table(tmp[, c("RECIST", "ORR")])
 
 
 data_lee_preprocessed <- SummarizedExperiment::assay(data_lee)
