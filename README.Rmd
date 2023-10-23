@@ -88,15 +88,18 @@ git branch --delete main_devel
 
 ```{r, eval = FALSE}
 usethis::use_tidy_github()
-# 2023-10-23: Do NOT use github action checks as it cannot cope with git lfs, 
-# therefore always fails. 
-# I actively removed 
-#   .github/workflows/test-coverage.yaml
-#   .github/workflows/R-CMD-check.yaml
-usethis::use_tidy_github_actions()
-# overwrite tidy's default "check-full" with "check-standard"
-# to not run so many checks
-usethis::use_github_action("check-standard")
+# # 2023-10-23: Do NOT use github action checks as it cannot cope with git lfs,
+# # therefore always fails. Especially setup-r-dependencies fails because it tries
+# # to install the packge, but the data is not available for lazy loading.
+# # I actively removed
+# #   .github/workflows/test-coverage.yaml
+# #   .github/workflows/R-CMD-check.yaml
+# #   .github/workflows/pkgdown.yaml
+# #   .github/workflows/pr-commands.yaml
+# usethis::use_tidy_github_actions()
+# # overwrite tidy's default "check-full" with "check-standard"
+# # to not run so many checks
+# usethis::use_github_action("check-standard")
 usethis::use_tidy_github_labels()
 usethis::use_pkgdown_github_pages()
 ```
