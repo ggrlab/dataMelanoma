@@ -128,17 +128,17 @@ Before committing: ``pre-commit install --hook-type pre-push``, then commit.
 Used packages:
 ```{r, eval = FALSE}
 usethis::use_package("devtools")
-usethis::use_package("dplyr")
 usethis::use_package("lifecycle")
-usethis::use_package("tibble")
-usethis::use_package("qs")
-usethis::use_package("usethis")
-usethis::use_package("readxl")
 precommit::snippet_generate("additional-deps-roxygenize")
 ```
 
 Packages used within the data-raw scripts:
 ```{r, eval = FALSE}
+usethis::use_package("dplyr", type = "Suggests")
+usethis::use_package("tibble", type = "Suggests")
+usethis::use_package("qs", type = "Suggests")
+usethis::use_package("usethis", type = "Suggests")
+usethis::use_package("readxl", type = "Suggests")
 usethis::use_package("pacman", type = "Suggests")
 usethis::use_package("stringr", type = "Suggests")
 usethis::use_package("gridExtra", type = "Suggests")

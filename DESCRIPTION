@@ -16,7 +16,13 @@ Suggests:
     pacman,
     stringr,
     sva,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    devtools,
+    dplyr,
+    qs,
+    readxl,
+    tibble,
+    usethis
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -24,13 +30,7 @@ RoxygenNote: 7.2.3
 URL: https://github.com/ggrlab/dataMelanoma, https://ggrlab.github.io/dataMelanoma/
 BugReports: https://github.com/ggrlab/dataMelanoma/issues
 Imports: 
-    devtools,
-    dplyr,
-    lifecycle,
-    qs,
-    readxl,
-    tibble,
-    usethis
+    lifecycle
 Depends: 
     R (>= 2.10)
 LazyData: true
