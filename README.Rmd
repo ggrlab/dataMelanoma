@@ -88,6 +88,11 @@ git branch --delete main_devel
 
 ```{r, eval = FALSE}
 usethis::use_tidy_github()
+# 2023-10-23: Do NOT use github action checks as it cannot cope with git lfs, 
+# therefore always fails. 
+# I actively removed 
+#   .github/workflows/test-coverage.yaml
+#   .github/workflows/R-CMD-check.yaml
 usethis::use_tidy_github_actions()
 # overwrite tidy's default "check-full" with "check-standard"
 # to not run so many checks
