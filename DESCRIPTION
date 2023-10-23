@@ -1,6 +1,6 @@
 Package: dataMelanoma
 Title: A data source for melanoma data
-Version: 0.0.2.9001
+Version: 0.0.2.9002
 Authors@R: 
     person("Gunther", "Glehr", , "gunthergl@gmx.net", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1495-9162"))
@@ -34,3 +34,4 @@ Imports:
 Depends: 
     R (>= 2.10)
 LazyData: true
+LazyDataCompression: bzip2
