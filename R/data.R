@@ -108,3 +108,70 @@ zhang2022 <- function() {
 #' @format
 #' A tibble with 225 rows (features) and 1 + 167 columns (1 feature, 167 samples).
 "spencer2021_lkt_ppm"
+
+#' @title Lee2022 (curated) phenodata
+#' @description Manually selected columns from lee2022_treesummarizedexperiment, see
+#' also \code{\link{lee2022_treesummarizedexperiment}}.
+#' @source Lee, K.A., Thomas, A.M., Bolte, L.A. et al. Cross-cohort gut microbiome
+#' associations with immune checkpoint inhibitor response in advanced melanoma. Nat Med
+#' ü28, 535–544 (2022). https://doi.org/10.1038/s41591-022-01695-5
+#' @format A tibble with 315 rows (samples) and 14 columns (features):
+#'
+#'   study_name, subject_id, body_site, age, age_category, gender, PMID, number_reads,
+#'   number_bases, minimum_read_length, median_read_length, NCBI_accession,
+#' lee_subcohort, PFS12
+"lee2022_pheno_curated"
+
+#' @title Lee2022 preprocessed microbiome data
+#' @description Preprocessed microbiome data from Lee2022, see also
+#' \code{\link{lee2022_treesummarizedexperiment}}. All melanoma data from
+#' curatedMetagenomicData was acquired. Those came from the following other ``study_name``
+#' refering to other papers.
+#'
+#'  - FrankelAE_2017
+#'  - GopalakrishnanV_2018
+#'  - LeeKA_2022
+#'  - MatsonV_2018
+#'  - PetersBA_2019
+#'  - WindTT_2020
+#'
+#' Data preprocessing was according to "Machine learning analysis." in the paper's methods:
+#'
+#'  - Excluding samples with low sequencing depth (number_reads must be > 1e6)
+#'  1. Remove species with relative abundances with low overall abundance ("1e-4 maximum abundance cutoff")
+#'  2. log10 transformed after pseudocount of 1e-5
+#'  3. Standardized as z-scores
+#'
+#' @format
+#' Preprocessed data from 315 samples (columns) and 672 species (rows). The rownames
+#' are coded according to different taxonomies. Use the package "mia" to decode them,
+#' but potentially focus on the \code{\link{lee2022_treesummarizedexperiment}}!
+#'
+#' k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Leuconostocaceae|g__Leuconostoc|s__Leuconostoc_garlicum
+#'
+#'
+"lee2022_relative_abundance_preprocessed"
+
+#' @title Lee2022 treesummarizedexperiment microbiome data
+#' @description Microbiome data from Lee2022, see also
+#' \code{\link{lee2022_treesummarizedexperiment}}. All melanoma data from
+#' curatedMetagenomicData was acquired. Those came from the following other ``study_name``
+#' refering to other papers.
+#'
+#'  - FrankelAE_2017
+#'  - GopalakrishnanV_2018
+#'  - LeeKA_2022
+#'  - MatsonV_2018
+#'  - PetersBA_2019
+#'  - WindTT_2020
+#'
+#' No further dataprocessing was done.
+#'
+#' @format
+#' Preprocessed data from 315 samples (columns) and 672 species (rows). The rownames
+#' are coded according to different taxonomies. Use the package "mia" to decode them.
+#'
+#' k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Leuconostocaceae|g__Leuconostoc|s__Leuconostoc_garlicum
+#'
+#'
+"lee2022_treesummarizedexperiment"
