@@ -7,8 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/dataMelanoma)](https://CRAN.R-project.org/package=dataMelanoma)
+<!-- [![CRAN status](https://www.r-pkg.org/badges/version/dataMelanoma)](https://CRAN.R-project.org/package=dataMelanoma) -->
 [![R-CMD-check](https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/ggrlab/dataMelanoma/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ggrlab/dataMelanoma?branch=master)
@@ -19,13 +18,27 @@ easy usage in R or general code projects.
 
 ## Installation
 
-You can install the development version of dataMelanoma like so:
+You need to have git-lfs installed after all data/\*.rda are stored
+within github as git-lfs. See <https://git-lfs.com/> how to install. To
+check if git-lfs is installed:
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+``` bash
+git lfs version
 ```
 
-## Example
+Should result in something like `git-lfs/2.9.2 (GitHub; linux amd64;
+go 1.13.5)`
+
+Then, clone this github repository
+
+``` bash
+git clone https://github.com/ggrlab/dataMelanoma.git
+```
+
+``` r
+install.packages("devtools")
+devtools::install("dataMelanoma")
+```
 
 # Thoughts
 
@@ -35,6 +48,8 @@ You can install the development version of dataMelanoma like so:
   - If I sometime decide to use zenodo:
     <https://github.com/ropenscilabs/deposits> or
     <https://github.com/eblondel/zen4R> (Probably rather `deposits`)
+  - I recently found ExperimentHub, maybe that might be of use
+    <https://bioconductor.org/packages/3.16/bioc/html/ExperimentHub.html>
 
 # How was this package created?
 
