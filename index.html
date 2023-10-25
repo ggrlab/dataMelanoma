@@ -32,7 +32,7 @@
     
     <a class="navbar-brand me-2" href="index.html">dataMelanoma</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,11 +66,212 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-This package provides various melanoma datasets. It gives access to the code 
-    used to harvest/preprocess the data, as well as the data itself. The processed data 
-    is stored with git-lfs as long as possible. If github's quota is reached, I might 
-    switch to zenodo.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="datamelanoma">dataMelanoma<a class="anchor" aria-label="anchor" href="#datamelanoma"></a>
+</h1></div>
+<!-- badges: start -->
+
+<p>The goal of dataMelanoma is to provides various melanoma datasets for easy usage in R or general code projects.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the development version of dataMelanoma like so:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+</div>
+</div>
+<div class="section level1">
+<h1 id="thoughts">Thoughts<a class="anchor" aria-label="anchor" href="#thoughts"></a>
+</h1>
+<ul>
+<li>The package is motivated by <a href="https://r-pkgs.org/data.html" class="external-link uri">https://r-pkgs.org/data.html</a>
+</li>
+<li>Some ideas were taken from <a href="https://gitlab.spang-lab.de/glg58630/dataloading.lfs" class="external-link uri">https://gitlab.spang-lab.de/glg58630/dataloading.lfs</a>
+</li>
+<li>If I sometime decide to use zenodo: <a href="https://github.com/ropenscilabs/deposits" class="external-link uri">https://github.com/ropenscilabs/deposits</a> or <a href="https://github.com/eblondel/zen4R" class="external-link uri">https://github.com/eblondel/zen4R</a> (Probably rather <code>deposits</code>)</li>
+</ul>
+</div>
+<div class="section level1">
+<h1 id="how-was-this-package-created">How was this package created?<a class="anchor" aria-label="anchor" href="#how-was-this-package-created"></a>
+</h1>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># for VSCode</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"languageserver"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/tidyverse.html" class="external-link">create_tidy_package</a></span><span class="op">(</span><span class="st">"/home/gugl/clonedgit/ggrlab/dataMelanoma"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/proj_activate.html" class="external-link">proj_activate</a></span><span class="op">(</span><span class="st">"/home/gugl/clonedgit/ggrlab/dataMelanoma"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/tidyverse.html" class="external-link">use_tidy_style</a></span><span class="op">(</span>strict <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git.html" class="external-link">use_git</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><code>usethis</code> tells you to envoke further github-related commands. There is two ways to continue: 1. Create a personal access token (PAT) and use it to authenticate with github 2. Manually push the package to github</p>
+<p>Pushing manually works fine, but some advanced <code>usethis</code> commands won’t work properly, therefore I will continue with the PAT.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link">create_github_token</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># if done already, use "github token, ggrlab, PAT" password</span></span>
+<span><span class="fu">gitcreds</span><span class="fu">::</span><span class="fu"><a href="https://gitcreds.r-lib.org/reference/gitcreds_get.html" class="external-link">gitcreds_set</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Then enter the freshly generated token</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github.html" class="external-link">use_github</a></span><span class="op">(</span></span>
+<span>    organisation <span class="op">=</span> <span class="st">"ggrlab"</span>,</span>
+<span>    private <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    visibility <span class="op">=</span> <span class="st">"public"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>WARNING!!! If an error occurs because e.g. the repository exists already at github, use the following instead of <code><a href="https://usethis.r-lib.org/reference/use_github.html" class="external-link">usethis::use_github()</a></code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main_devel</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:ggrlab/restrictedROC.git</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge main_devel <span class="at">--allow-unrelated-histories</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--delete</span> main_devel</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/tidyverse.html" class="external-link">use_tidy_github</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># # 2023-10-23: Do NOT use github action checks as it cannot cope with git lfs,</span></span>
+<span><span class="co"># # therefore always fails. Especially setup-r-dependencies fails because it tries</span></span>
+<span><span class="co"># # to install the packge, but the data is not available for lazy loading.</span></span>
+<span><span class="co"># # I actively removed</span></span>
+<span><span class="co"># #   .github/workflows/test-coverage.yaml</span></span>
+<span><span class="co"># #   .github/workflows/R-CMD-check.yaml</span></span>
+<span><span class="co"># #   .github/workflows/pkgdown.yaml</span></span>
+<span><span class="co"># #   .github/workflows/pr-commands.yaml</span></span>
+<span><span class="co"># usethis::use_tidy_github_actions()</span></span>
+<span><span class="co"># # overwrite tidy's default "check-full" with "check-standard"</span></span>
+<span><span class="co"># # to not run so many checks</span></span>
+<span><span class="co"># usethis::use_github_action("check-standard")</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_labels.html" class="external-link">use_tidy_github_labels</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_pkgdown.html" class="external-link">use_pkgdown_github_pages</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Additional information:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_author.html" class="external-link">use_author</a></span><span class="op">(</span></span>
+<span>    given <span class="op">=</span> <span class="st">"Gunther"</span>,</span>
+<span>    family <span class="op">=</span> <span class="st">"Glehr"</span>,</span>
+<span>    email <span class="op">=</span> <span class="st">"gunthergl@gmx.net"</span>,</span>
+<span>    role <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aut"</span>, <span class="st">"cre"</span><span class="op">)</span>,</span>
+<span>    comment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ORCID"</span> <span class="op">=</span> <span class="st">"0000-0002-1495-9162"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_lifecycle.html" class="external-link">use_lifecycle</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_news_md.html" class="external-link">use_news_md</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">use_lintr</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"tidyverse"</span><span class="op">)</span></span>
+<span><span class="co"># Change file .lintr manually to:</span></span>
+<span><span class="co"># linters: linters_with_defaults(line_length_linter = line_length_linter(120),indentation_linter = indentation_linter(4)) # see vignette("lintr")</span></span>
+<span><span class="co"># encoding: "UTF-8"</span></span></code></pre></div>
+<p>precommit is a wonderful tool to check your code before committing it.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># https://lorenzwalthert.github.io/precommit/articles/precommit.html</span></span>
+<span><span class="co"># install.packages("precommit")</span></span>
+<span><span class="co"># bash::$ conda deactivate</span></span>
+<span><span class="co"># bash::$ pip3 install pre-commit</span></span>
+<span><span class="fu">precommit</span><span class="fu">::</span><span class="fu">install_precommit</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">precommit</span><span class="fu">::</span><span class="fu">use_precommit</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">## Use pre-commit-config.yaml from restrictedROC</span></span></code></pre></div>
+<p>Before committing: <code>pre-commit install --hook-type pre-push</code>, then commit.</p>
+<p>Used packages:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"lifecycle"</span><span class="op">)</span></span>
+<span><span class="fu">precommit</span><span class="fu">::</span><span class="fu">snippet_generate</span><span class="op">(</span><span class="st">"additional-deps-roxygenize"</span><span class="op">)</span></span></code></pre></div>
+<p>Packages used within the data-raw scripts:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"dplyr"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"tibble"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"qs"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"usethis"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"readxl"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"pacman"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"stringr"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"gridExtra"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"sva"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"caret"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html" class="external-link">use_package</a></span><span class="op">(</span><span class="st">"data.table"</span>, type <span class="op">=</span> <span class="st">"Suggests"</span><span class="op">)</span></span></code></pre></div>
+<p>Set up git-lfs</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> lfs install</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> lfs track <span class="st">"*.rda"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitattributes</span></code></pre></div>
+<p>Added LazyDataCompression to DESCRIPTION:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>LazyDataCompression<span class="sc">:</span> bzip2</span></code></pre></div>
+<div class="section level2">
+<h2 id="how-to-add-or-reproduce-datasets">How to add or reproduce datasets<a class="anchor" aria-label="anchor" href="#how-to-add-or-reproduce-datasets"></a>
+</h2>
+<div class="section level3">
+<h3 id="quickstart">Quickstart<a class="anchor" aria-label="anchor" href="#quickstart"></a>
+</h3>
+<p>Create a new project with <code><a href="reference/create_data_project.html">create_data_project()</a></code>. This will create a new folder in <code>data-raw/</code> and populate it with a <code>main.R</code> script containing a very basic layout of code which you can populate.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">dataMelanoma</span><span class="fu">::</span><span class="fu"><a href="reference/create_data_project.html">create_data_project</a></span><span class="op">(</span><span class="st">"2022-Lozano-NatMed"</span><span class="op">)</span></span></code></pre></div>
+<p>Now modify <code>data-raw/2022-Lozano-NatMed/main.R</code>. If you need more complicated scripts or additional functions, stratify them within <code>data-raw/2022-Lozano-NatMed/src/</code> and <code>data-raw/2022-Lozano-NatMed/src/_functions/</code>.</p>
+</div>
+<div class="section level3">
+<h3 id="slightly-more-detailed">Slightly more detailed<a class="anchor" aria-label="anchor" href="#slightly-more-detailed"></a>
+</h3>
+<p>To add or reproduce datasets you need the raw datafiles. All final datasets can be found under <code>data/&lt;datasetname&gt;.rda</code>. Those files <strong>must</strong> be generated by the scripts in <code>data-raw</code> using <code><a href="https://usethis.r-lib.org/reference/use_data.html" class="external-link">usethis::use_data()</a></code>. Inside <code>data-raw</code> are folders, in best case logically separated.</p>
+<p>I usually term them with <code>&lt;year&gt;-&lt;FirstAuthorLASTname&gt;-&lt;Journal&gt;</code> where year refers to the year in the respective citation. In the following I refer to such an example folder by <code>rawdir_dataset</code>.</p>
+<p>An example of a dataset is <code>data-raw/2022-Lozano-NatMed/</code>. Each <code>data-raw</code> project must have the following structure:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">data-raw/2022-Lozano-NatMed/</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> main.R  <span class="co"># The main script to reproduce the data, ALL code must be called from here</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> src/    <span class="co"># Here is the code to reproduce the data stored in res/</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│</span>   ├── _functions/             <span class="co"># Functions used </span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│</span>   ├── f01_example.R           <span class="co"># Code to reproduce the data</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│</span>   ├── ...                         </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│</span>   └── f99_finalCodePart.R</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> data/   <span class="co"># Here is the actual raw data</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> res/    <span class="co"># The final data files</span></span></code></pre></div>
+<p>Scripts must access data by their full path relative to the main <code>datamelanoma</code>-package directory:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">proj_dir</span> <span class="op">&lt;-</span> <span class="st">"data-raw/2022-Lozano-NatMed/"</span> <span class="co"># The current data-raw, dataset folder</span></span>
+<span><span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">proj_dir</span>, <span class="st">"data/rawData/example.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># if there are subfolders in rawdata</span></span>
+<span><span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">proj_dir</span>, <span class="st">"data/rawData/folderXY/example2.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Inside git, <strong>no raw data</strong> should be included. Usually, the data is online somewhere already, so include code to download the data. If the data is not online, it should be stored in e.g. zenodo, then the code to download it from there should be included.</p>
+<p>In the end, the complete dataset must be reproducible by calling <code>main.R</code> within each <code>data-raw</code> folder.</p>
+</div>
+</div>
+</div>
+<div class="section level1">
+<h1 id="how-to-add-information">How to add information<a class="anchor" aria-label="anchor" href="#how-to-add-information"></a>
+</h1>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Use pre-commits to check your code before committing it</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lorenzwalthert/precommit"</span><span class="op">)</span></span>
+<span><span class="fu">precommit</span><span class="fu">::</span><span class="fu">install_precommit</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">precommit</span><span class="fu">::</span><span class="fu">use_precommit</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Increase the versions manually</span></span>
+<span><span class="co"># Add a note to NEWS.md</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Add new functionality and document it</span></span>
+<span><span class="co"># During development, have a clean R environment and run devtools::load_all() to load the current status of the package</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">load_all</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># After adding new functionality, run devtools::check() to update the documentation</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">check</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">document</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Vignettes are a great way to document your package</span></span>
+<span><span class="co"># Add a new vignette by running</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_vignette.html" class="external-link">use_vignette</a></span><span class="op">(</span><span class="st">"vignette_name"</span><span class="op">)</span></span>
+<span><span class="co"># Change the vignette in vignettes/vignette_name.Rmd</span></span>
+<span><span class="co"># Build the vignette by running</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_vignettes.html" class="external-link">build_vignettes</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># This also installs the package</span></span>
+<span></span>
+<span><span class="co"># Articles</span></span>
+<span><span class="co"># Instead of a vignette, you can create an article, which is a term used by</span></span>
+<span><span class="co"># pkgdown for a vignette-like .Rmd document that is not shipped with the package,</span></span>
+<span><span class="co"># but that appears only in the website.</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_vignette.html" class="external-link">use_article</a></span><span class="op">(</span><span class="st">"article_name"</span><span class="op">)</span></span>
+<span><span class="co"># Further arguments of devtools::build_site() are forwarded to pkgdown::build_site():</span></span>
+<span><span class="co"># https://pkgdown.r-lib.org/reference/build_site.html</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_site.html" class="external-link">build_site</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_site.html" class="external-link">build_site</a></span><span class="op">(</span>devel <span class="op">=</span> <span class="cn">TRUE</span>, lazy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># Use this for faster iteration during development</span></span>
+<span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_rmd.html" class="external-link">build_readme</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># This updates the README.md file from the README.Rmd</span></span></code></pre></div>
+<ul>
+<li>Disable pre-commit for a single commit: <code>git commit . -m 'quick fix'     --no-verify</code>
+</li>
+</ul>
+</div>
+
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -110,7 +311,15 @@ This package provides various melanoma datasets. It gives access to the code
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://CRAN.R-project.org/package=dataMelanoma" class="external-link"><img src="https://www.r-pkg.org/badges/version/dataMelanoma" alt="CRAN status"></a></li>
+<li><a href="https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/ggrlab/dataMelanoma?branch=master" class="external-link"><img src="https://codecov.io/gh/ggrlab/dataMelanoma/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
