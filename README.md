@@ -1,29 +1,21 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-    collapse = TRUE,
-    comment = "#>",
-    fig.path = "man/figures/README-",
-    out.width = "100%"
-)
-```
 
 # dataMelanoma
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/dataMelanoma)](https://CRAN.R-project.org/package=dataMelanoma)
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/dataMelanoma)](https://CRAN.R-project.org/package=dataMelanoma)
 [![R-CMD-check](https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggrlab/dataMelanoma/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/ggrlab/dataMelanoma/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ggrlab/dataMelanoma?branch=master)
+[![Codecov test
+coverage](https://codecov.io/gh/ggrlab/dataMelanoma/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ggrlab/dataMelanoma?branch=master)
 <!-- badges: end -->
 
-The goal of dataMelanoma is to provides various melanoma datasets for easy usage in R or 
-general code projects. 
+The goal of dataMelanoma is to provides various melanoma datasets for
+easy usage in R or general code projects.
 
 ## Installation
 
@@ -37,14 +29,16 @@ You can install the development version of dataMelanoma like so:
 
 # Thoughts
 
- - The package is motivated by https://r-pkgs.org/data.html
- - Some ideas were taken from https://gitlab.spang-lab.de/glg58630/dataloading.lfs
- - If I sometime decide to use zenodo: https://github.com/ropenscilabs/deposits or https://github.com/eblondel/zen4R  (Probably rather ``deposits``)
-
+  - The package is motivated by <https://r-pkgs.org/data.html>
+  - Some ideas were taken from
+    <https://gitlab.spang-lab.de/glg58630/dataloading.lfs>
+  - If I sometime decide to use zenodo:
+    <https://github.com/ropenscilabs/deposits> or
+    <https://github.com/eblondel/zen4R> (Probably rather `deposits`)
 
 # How was this package created?
 
-```{r, eval = FALSE}
+``` r
 # for VSCode
 install.packages("languageserver")
 install.packages("devtools")
@@ -54,16 +48,14 @@ usethis::use_tidy_style(strict = TRUE)
 usethis::use_git()
 ```
 
+`usethis` tells you to envoke further github-related commands. There is
+two ways to continue: 1. Create a personal access token (PAT) and use it
+to authenticate with github 2. Manually push the package to github
 
-``usethis`` tells you to envoke further github-related commands. 
-There is two ways to continue: 
-1. Create a personal access token (PAT) and use it to authenticate with github
-2. Manually push the package to github 
+Pushing manually works fine, but some advanced `usethis` commands won’t
+work properly, therefore I will continue with the PAT.
 
-Pushing manually works fine, but some advanced ``usethis`` commands won't work properly, 
-therefore I will continue with the PAT.
-
-```{r, eval = FALSE}
+``` r
 #
 usethis::create_github_token() # if done already, use "github token, ggrlab, PAT" password
 gitcreds::gitcreds_set() # Then enter the freshly generated token
@@ -74,10 +66,10 @@ usethis::use_github(
 )
 ```
 
-WARNING!!!
-If an error occurs because e.g. the repository exists already at github, use the following instead of 
-``usethis::use_github()``:
-```{bash, eval = FALSE}
+WARNING\!\!\! If an error occurs because e.g. the repository exists
+already at github, use the following instead of `usethis::use_github()`:
+
+``` bash
 git branch -M main_devel
 git remote add origin git@github.com:ggrlab/restrictedROC.git
 git checkout main
@@ -86,7 +78,7 @@ git push -u origin main
 git branch --delete main_devel
 ```
 
-```{r, eval = FALSE}
+``` r
 usethis::use_tidy_github()
 # # 2023-10-23: Do NOT use github action checks as it cannot cope with git lfs,
 # # therefore always fails. Especially setup-r-dependencies fails because it tries
@@ -104,8 +96,9 @@ usethis::use_tidy_github_labels()
 usethis::use_pkgdown_github_pages()
 ```
 
-Additional information: 
-```{r, eval = FALSE}
+Additional information:
+
+``` r
 usethis::use_author(
     given = "Gunther",
     family = "Glehr",
@@ -120,9 +113,10 @@ lintr::use_lintr(type = "tidyverse")
 # linters: linters_with_defaults(line_length_linter = line_length_linter(120),indentation_linter = indentation_linter(4)) # see vignette("lintr")
 # encoding: "UTF-8"
 ```
-precommit is a wonderful tool to check your code before committing it. 
 
-```{r, eval = FALSE}
+precommit is a wonderful tool to check your code before committing it.
+
+``` r
 # https://lorenzwalthert.github.io/precommit/articles/precommit.html
 # install.packages("precommit")
 # bash::$ conda deactivate
@@ -131,17 +125,21 @@ precommit::install_precommit()
 precommit::use_precommit()
 ## Use pre-commit-config.yaml from restrictedROC
 ```
-Before committing: ``pre-commit install --hook-type pre-push``, then commit. 
+
+Before committing: `pre-commit install --hook-type pre-push`, then
+commit.
 
 Used packages:
-```{r, eval = FALSE}
+
+``` r
 usethis::use_package("devtools")
 usethis::use_package("lifecycle")
 precommit::snippet_generate("additional-deps-roxygenize")
 ```
 
 Packages used within the data-raw scripts:
-```{r, eval = FALSE}
+
+``` r
 usethis::use_package("dplyr", type = "Suggests")
 usethis::use_package("tibble", type = "Suggests")
 usethis::use_package("qs", type = "Suggests")
@@ -156,40 +154,50 @@ usethis::use_package("data.table", type = "Suggests")
 ```
 
 Set up git-lfs
-```{bash, eval = FALSE}
+
+``` bash
 git lfs install
 git lfs track "*.rda"
 git add .gitattributes
 ```
 
 Added LazyDataCompression to DESCRIPTION:
-```
-LazyDataCompression: bzip2
-```
+
+    LazyDataCompression: bzip2
+
 ## How to add or reproduce datasets
 
 ### Quickstart
-Create a new project with ``create_data_project()``. 
-This will create a new folder in ``data-raw/`` and populate it with a ``main.R`` script 
-containing a very basic layout of code which you can populate. 
 
-```{r, eval = FALSE}
+Create a new project with `create_data_project()`. This will create a
+new folder in `data-raw/` and populate it with a `main.R` script
+containing a very basic layout of code which you can populate.
+
+``` r
 dataMelanoma::create_data_project("2022-Lozano-NatMed")
 ```
 
-Now modify ``data-raw/2022-Lozano-NatMed/main.R``. If you need more complicated scripts
-or additional functions, stratify them within ``data-raw/2022-Lozano-NatMed/src/`` and 
-``data-raw/2022-Lozano-NatMed/src/_functions/``.
-
+Now modify `data-raw/2022-Lozano-NatMed/main.R`. If you need more
+complicated scripts or additional functions, stratify them within
+`data-raw/2022-Lozano-NatMed/src/` and
+`data-raw/2022-Lozano-NatMed/src/_functions/`.
 
 ### Slightly more detailed
-To add or reproduce datasets you need the raw datafiles. All final datasets can be found under `data/<datasetname>.rda`. Those files **must** be generated by the scripts in `data-raw` using `usethis::use_data()`. Inside `data-raw` are folders, in best case logically separated. 
 
-I usually term them with `<year>-<FirstAuthorLASTname>-<Journal>` where year refers to the year in the respective citation. In the following I refer to such an example folder by `rawdir_dataset`.
+To add or reproduce datasets you need the raw datafiles. All final
+datasets can be found under `data/<datasetname>.rda`. Those files
+**must** be generated by the scripts in `data-raw` using
+`usethis::use_data()`. Inside `data-raw` are folders, in best case
+logically separated.
 
-An example of a dataset is `data-raw/2022-Lozano-NatMed/`. Each ``data-raw`` project must have the following structure:
+I usually term them with `<year>-<FirstAuthorLASTname>-<Journal>` where
+year refers to the year in the respective citation. In the following I
+refer to such an example folder by `rawdir_dataset`.
 
-```bash
+An example of a dataset is `data-raw/2022-Lozano-NatMed/`. Each
+`data-raw` project must have the following structure:
+
+``` bash
 data-raw/2022-Lozano-NatMed/
     ├── main.R  # The main script to reproduce the data, ALL code must be called from here
     ├── src/    # Here is the code to reproduce the data stored in res/
@@ -201,10 +209,10 @@ data-raw/2022-Lozano-NatMed/
     └── res/    # The final data files
 ```
 
+Scripts must access data by their full path relative to the main
+`datamelanoma`-package directory:
 
-Scripts must access data by their full path relative to the main `datamelanoma`-package directory:
-
-```{r, eval=FALSE}
+``` r
 proj_dir <- "data-raw/2022-Lozano-NatMed/" # The current data-raw, dataset folder
 my_data <- read.csv(file.path(proj_dir, "data/rawData/example.csv"))
 
@@ -212,17 +220,17 @@ my_data <- read.csv(file.path(proj_dir, "data/rawData/example.csv"))
 my_data <- read.csv(file.path(proj_dir, "data/rawData/folderXY/example2.csv"))
 ```
 
-Inside git, **no raw data** should be included. Usually, the data is online somewhere already, 
-so include code to download the data. If the data is not online, it should be stored in 
-e.g. zenodo, then the code to download it from there should be included.
+Inside git, **no raw data** should be included. Usually, the data is
+online somewhere already, so include code to download the data. If the
+data is not online, it should be stored in e.g. zenodo, then the code to
+download it from there should be included.
 
-
-In the end, the complete dataset must be reproducible by calling ``main.R`` within each 
-``data-raw`` folder.
+In the end, the complete dataset must be reproducible by calling
+`main.R` within each `data-raw` folder.
 
 # How to add information
 
-```{r, eval = FALSE}
+``` r
 # Use pre-commits to check your code before committing it
 remotes::install_github("lorenzwalthert/precommit")
 precommit::install_precommit()
@@ -260,4 +268,5 @@ devtools::build_site(devel = TRUE, lazy = TRUE) # Use this for faster iteration 
 devtools::build_readme() # This updates the README.md file from the README.Rmd
 ```
 
-- Disable pre-commit for a single commit: ``git commit . -m 'quick fix' --no-verify``
+  - Disable pre-commit for a single commit: `git commit . -m 'quick fix'
+    --no-verify`
