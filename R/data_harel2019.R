@@ -3,16 +3,17 @@
 #' treatment (PD, PR, CR or SD). Stable disease (SD) was excluded from the analysis
 #' following the paper.
 #' @format A data frame with 109 rows and 14 variables. Highlighted columns:
-#' \describe{
+#' \itemize{
 #'   \item{\code{Response}}{Response to treatment: PD, PR, CR or SD. Samples with SD were excluded.}
 #'   \item{\code{Sample taken after treatment}}{There are 2 samples which were taken AFTER treatment!}
-#'   \item{\code{response_paper}}{character COLUMN_DESCRIPTION}
+#'   \item{\code{response_paper}}{Response to treatment according to the paper.}
+#'   \item{...}{Self explanatory}
 #' }
 #' @source
 #' Harel et al. "Proteomics of melanoma response to immunotherapy reveals mitochondrial
 #' dependence." Cell 179.1 (2019): 236-250. https://doi.org/10.1016/j.cell.2019.08.012
 #' @details
-#' In [Harel et al, 2019, Cell], the authors describe melanoma response
+#' In Harel et al, 2019, Cell, the authors describe melanoma response
 #' to immunotherapy. They use high-resolution mass spectrometry to quantify 4,300
 #' proteins across 116 patients. Formalin-fixed paraffin-embedded (FFPE) tissues from
 #' 42 metastatic melanoma patients treated with TIL-based adoptive cell transfer and 74
@@ -30,7 +31,7 @@
 #' @description
 #'  Phenodata taken from Supplementary table S1A.
 #'  See also \code{\link{harel2019_pheno}}.
-#' @format A named character vector of length 109. Names are the sample IDs (harel2019_pheno[["Sample ID"]]),
+#' @format A named character vector of length 109. Names are the sample IDs (\code{harel2019_pheno[["Sample ID"]]}),
 #' values are the response to treatment ("non-responder" or "responder").
 #' @source
 #' Harel et al. "Proteomics of melanoma response to immunotherapy reveals mitochondrial

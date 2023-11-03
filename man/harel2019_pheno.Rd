@@ -6,10 +6,11 @@
 \title{Phenodata for Harel2019}
 \format{
 A data frame with 109 rows and 14 variables. Highlighted columns:
-\describe{
+\itemize{
 \item{\code{Response}}{Response to treatment: PD, PR, CR or SD. Samples with SD were excluded.}
 \item{\code{Sample taken after treatment}}{There are 2 samples which were taken AFTER treatment!}
-\item{\code{response_paper}}{character COLUMN_DESCRIPTION}
+\item{\code{response_paper}}{Response to treatment according to the paper.}
+\item{...}{Self explanatory}
 }
 }
 \source{
@@ -25,7 +26,7 @@ treatment (PD, PR, CR or SD). Stable disease (SD) was excluded from the analysis
 following the paper.
 }
 \details{
-In \link{Harel et al, 2019, Cell}, the authors describe melanoma response
+In Harel et al, 2019, Cell, the authors describe melanoma response
 to immunotherapy. They use high-resolution mass spectrometry to quantify 4,300
 proteins across 116 patients. Formalin-fixed paraffin-embedded (FFPE) tissues from
 42 metastatic melanoma patients treated with TIL-based adoptive cell transfer and 74

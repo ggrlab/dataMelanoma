@@ -5,7 +5,7 @@
 \alias{harel2019_responder_noSD}
 \title{Named non-/responder status for Harel2019}
 \format{
-A named character vector of length 109. Names are the sample IDs (harel2019_pheno[\link{"Sample ID"}]),
+A named character vector of length 109. Names are the sample IDs (\code{harel2019_pheno[["Sample ID"]]}),
 values are the response to treatment ("non-responder" or "responder").
 }
 \source{

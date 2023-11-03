@@ -1,19 +1,20 @@
 #' @title Li 2019 phenodata
 #' @description List of phenodata per study. There are 3 studies with 4 branches:
 #' \describe{
-#'      \item{s1} {melanoma (nivolumab, phase1)}
-#'      \item{s2} {RCC (nivolumab, phase1)}
-#'      \item{s3_nivo} {RCC (nivolumab, phase3)}
-#'      \item{s3_ever} {RCC (everolimus, phase3)}
+#'      \item{s1}{melanoma (nivolumab, phase1)}
+#'      \item{s2}{RCC (nivolumab, phase1)}
+#'      \item{s3_nivo}{RCC (nivolumab, phase3)}
+#'      \item{s3_ever}{RCC (everolimus, phase3)}
 #' }
 #' Each of the four list elements contains a data frame with samples as rows and
 #' pheno-information as columns.
+#'
 #' @format A list of 4 with a single tibble each.
 #' \describe{
-#'      \item{s1} {78 samples, 8 columns}
-#'      \item{s2} {91 samples, 8 columns}
-#'      \item{s3_nivo} {394 samples, 10 columns}
-#'      \item{s3_ever} {349 samples, 10 columns}
+#'      \item{s1}{78 samples, 8 columns}
+#'      \item{s2}{91 samples, 8 columns}
+#'      \item{s3_nivo}{394 samples, 10 columns}
+#'      \item{s3_ever}{349 samples, 10 columns}
 #' }
 #'
 #' The data.frames ``s1`` and ``s2`` have the following columns:

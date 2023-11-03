@@ -219,6 +219,7 @@ usethis::use_package("gridExtra", type = "Suggests")
 usethis::use_package("sva", type = "Suggests")
 usethis::use_package("caret", type = "Suggests")
 usethis::use_package("data.table", type = "Suggests")
+usethis::use_package("TreeSummarizedExperiment", type = "Suggests")
 ```
 
 Set up git-lfs
