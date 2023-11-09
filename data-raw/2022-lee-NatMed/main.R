@@ -7,6 +7,8 @@ proj_dir <- "data-raw/2022-lee-NatMed/"
 pacman::p_install("DirichletMultinomial", force = FALSE)
 pacman::p_install("curatedMetagenomicData", force = FALSE)
 pacman::p_load(dplyr)
+# https://stackoverflow.com/questions/77370659/error-failed-to-collect-lazy-table-caused-by-error-in-db-collect-using
+devtools::install_version("dbplyr", version = "2.3.4")
 
 curatedMetagenomicData::sampleMetadata |>
     dplyr::filter(grepl("melanoma", disease, ignore.case = TRUE)) |>
@@ -29,7 +31,7 @@ melanoma_studies_lee <-
     # [EXCLUDED:] samples with low sequencing depth(<1 million reads)
     dplyr::filter(number_reads > 1e6)
 
-data_lee <- melanoma_studies_lee |> curatedMetagenomicData::returnSamples(dataType = "relative_abundance")
+data_lee <- melanoma_studies_lee |> curatedMetagenomicData::returnSamples(dataType = "relative_abundance", rownames="long")
 
 
 
@@ -128,7 +130,7 @@ data_lee_preprocessed <- log10(data_lee_preprocessed + 1e-5)
 data_means <- apply(data_lee_preprocessed, 1, mean)
 data_sd <- apply(data_lee_preprocessed, 1, sd)
 data_lee_preprocessed <- sweep(data_lee_preprocessed, 1, data_means, "-")
-data_lee_preprocessed <- sweep(data_lee_preprocessed, 1, data_sd, "-")
+data_lee_preprocessed <- sweep(data_lee_preprocessed, 1, data_sd, "/")
 
 # Maybe see "Definition of response to therapy" in Paper Methods
 
